@@ -1,0 +1,1543 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+*::selection {
+    background-color: brown;
+    color: white;
+}
+body {
+    background: url(background/background.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+html {
+    font-size: 10px;
+    font-family: 'Comic Neue', cursive;
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+p {
+    color: white;
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: .05rem;
+    text-align: justify;
+}
+.cta {
+    display: inline-block;
+    padding: 10px 30px;
+    color: black;
+    background-color: transparent;
+    border: 2px solid brown;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 20px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+.cta:hover {
+    color: white;
+    background-color: brown;
+}
+.brand h1 {
+    font-size: 2.3rem;
+    text-transform: uppercase;
+    color: white;
+}
+.brand h1 span {
+    color: brown;
+    text-shadow: 0 0 10px 0 red;
+    text-shadow: 0 0 20px 0 orangered;
+    text-shadow: 0 0 30px 0 yellow;
+}
+
+/* Header */
+#header {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+.logo {
+    width: 150px;
+    cursor: pointer;
+}
+#header .header {
+    min-height: 8vh;
+}
+#header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 10px 20px;
+    transition: all ease 1s;
+}
+#header .navlist ul {
+    list-style: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: .5s ease left;
+}
+#header .navlist ul.active {
+    left: 0;
+}
+#header .navlist ul a {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    margin: 20px 0;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 50px;
+    transition: all ease .5s;
+}
+#header .navlist ul a::after {
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(255, 255, 255, 0.301);
+    font-size: 5rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: .3s ease letter-spacing;
+}
+#header .navlist ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}
+#header .navlist ul li:hover a {
+    color: white;
+    background-color: brown;
+}
+#header .hamburger {
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(.8);
+    margin-right: 5%;
+}
+#header .hamburger::after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: hamburger_pulse 1s ease infinite;
+}
+#header .hamburger .bar {
+    height: 3px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease;
+    transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+    top: 8px;
+}
+#header .hamburger .bar::before {
+    bottom: 8px;
+}
+#header .hamburger.active .bar::before {
+    bottom: 0;
+}
+#header .hamburger.active .bar::after {
+    top: 0;
+}
+/* End of Header */
+
+/* Home Section */
+#home {
+    background-image: url(background/page.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    position: relative;
+    z-index: 1;
+}
+#home::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .7;
+    z-index: -1;
+}
+#home .home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    justify-content: center;
+}
+#home h1 {
+    font-family: 'Caveat Brush', cursive;
+    display: block;
+    width: 100%;
+    font-size: 4rem;
+    margin-bottom: 40px;
+    filter: blur(5px);
+    text-align: center;
+    position: relative;
+    color: white;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1s;
+}
+#home h1.wel {
+    position: relative;
+    left: 20px;
+    margin-top: 100px;
+    width: 200px;
+}
+#home h1.to {
+    position: relative;
+    left: 100px;
+    width: 35px;
+}
+#home .logo {
+    width: 250px;
+}
+#home h1:nth-child(1) {
+    animation-delay: 1s;
+}
+#home h1:nth-child(2) {
+    animation-delay: 2s;
+}
+#home h1:nth-child(3) {
+    animation-delay: 3s;
+}
+
+/* End of Home */
+
+/* About */
+#about .about {
+    flex-direction: column;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 30px;
+}
+#about .section-title {
+    color: black;
+}
+#about .about h2 {
+    text-align: center;
+    width: 100%;
+    background-color: rgba(163, 48, 48, 0.61);
+    border-radius: 50px;
+    color: white;
+    padding: 5px 10px;
+    padding-left: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1.2rem;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+#about .about p {
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    padding: 20px 30px;
+    line-height: 3rem;
+    border-radius: 40px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px 0 khaki;
+}
+#about .about .cta {
+    font-weight: bold;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+#about .about-img {
+    margin-top: 40px;
+    border-radius: 100px;
+    box-shadow: 0 0 20px 0 khaki;
+}
+#about .guild {
+    width: 350px;
+}
+/* End of About Section */
+
+/* Services Section */
+#masters .masters.container {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0, 0, 0, 0.7)), url(background/fairytail.png);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#masters .master {
+    margin-bottom: 20px;
+    width: 300px;
+}
+#masters .masters {
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+#masters .master-top {
+    width: 350px;
+    max-width: 0 100%;
+}
+#masters .master-top p {
+    line-height: 3rem;
+}
+#masters .master-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+#masters .master-item {
+    flex-basis: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-size: cover;
+    box-shadow: 0 0 20px 0 khaki;
+    background-position: center center;
+    margin: 30px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+#masters .master-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .4;
+    z-index: -1;
+}
+#masters .master-bottom {
+    color: white;
+}
+#masters .master-item p {
+    color: white;
+    text-align: justify;
+}
+#masters .master-item .mavis{
+    width: 200px;
+    margin: 50px 0;
+}
+#masters .master-item .hades {
+    width: 110px;
+    margin: 50px 0;
+}
+#masters .master-item .makarov {
+    width: 225px;
+    margin: 50px 0;
+}
+#masters .master-item .gildarts {
+    width: 255px;
+    margin: 50px 0;
+}
+#masters .master-item .appearance {
+    width: 200px;
+    margin: 40px 0;
+}
+#masters .master-item .magic {
+    width: 120px;
+    margin: 40px 0;
+}
+#check {
+    display: none;
+}
+#masters .other {
+    display: none;
+    transition: all linear 1s;
+}
+#masters label {
+    margin-top: 50px;
+    font-size: 1.8rem;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: underline;
+}
+#masters label:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+#check:checked ~ .other {
+    display: block;
+}
+#check:checked ~ label {
+    visibility: hidden;
+}
+#check:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check1 {
+    display: none;
+}
+#check1:checked ~ .other {
+    display: block;
+}
+#check1:checked ~ label {
+    visibility: hidden;
+}
+#check1:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check2 {
+    display: none;
+}
+#check2:checked ~ .other {
+    display: block;
+}
+#check2:checked ~ label {
+    visibility: hidden;
+}
+#check2:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check3 {
+    display: none;
+}
+#check3:checked ~ .other {
+    display: block;
+}
+#check3:checked ~ label {
+    visibility: hidden;
+}
+#check3:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+/* End of Services Section */
+
+/* Members */
+#members {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(background/page1.jpg) no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    box-sizing: border-box;
+}
+#members .memberheads {
+    height: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 735px;
+    overflow: hidden;
+    z-index: 100;
+    box-shadow: 0 0 20px 0 khaki;
+}
+#members .memberheads ul {
+    display: flex;
+    padding: 20px 20px;
+    list-style: none;
+    justify-content: space-between;
+}
+#members .memberheads ul a.otherchar {
+    padding: 5px 10px;
+    border-radius: 50px;
+    background-color: brown;
+    color: white;
+    font-weight: bold;
+}
+#members .memberheads ul a {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 5px;
+    border-radius: 50px;
+    white-space: nowrap;
+    border-right: 1px solid white;
+}
+#members .memberheads ul a:hover {
+    background-color: brown;
+    color: white;
+}
+#members .members.container {
+    background: none;
+}
+#members .member {
+    margin-bottom: 20px;
+    width: 300px;
+}
+#members .members {
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+#members .member-top {
+    width: 350px;
+    max-width: 0 100%;
+}
+#members .member-top p {
+    line-height: 3rem;
+}
+#members .member-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+#members .member-item {
+    flex-basis: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-size: cover;
+    box-shadow: 0 0 20px 0 khaki;
+    background-position: center top;
+    margin: 30px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+#members .member-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: .4;
+    z-index: -1;
+}
+#members .member-bottom {
+    color: white;
+}
+#members .member-item p {
+    color: white;
+    text-align: justify;
+}
+#members .member-item .natsu{
+    width: 200px;
+    margin: 50px 0;
+}
+#members .member-item .gray {
+    width: 130px;
+    margin: 50px 0;
+}
+#members .member-item .lucy {
+    width: 210px;
+    margin: 50px 0;
+}
+#members .member-item .erza {
+    width: 110px;
+    margin: 50px 0;
+}
+#members .member-item .juvia{
+    width: 240px;
+    margin: 50px 0;
+}
+#members .member-item .wendy {
+    width: 180px;
+    margin: 50px 0;
+}
+#members .member-item .happy {
+    width: 180px;
+    margin: 50px 0;
+}
+#members .member-item .carla {
+    width: 180px;
+    margin: 50px 0;
+}
+#members .member-item .appearance {
+    width: 200px;
+    margin: 40px 0;
+}
+#members .member-item .magic {
+    width: 120px;
+    margin: 40px 0;
+}
+#check4 {
+    display: none;
+}
+#members .other {
+    display: none;
+    transition: all linear 1s;
+}
+#members label {
+    margin-top: 50px;
+    font-size: 1.8rem;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: underline;
+}
+#members label:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+#check4:checked ~ .other {
+    display: block;
+}
+#check4:checked ~ label {
+    visibility: hidden;
+}
+#check4:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check5 {
+    display: none;
+}
+#check5:checked ~ .other {
+    display: block;
+}
+#check5:checked ~ label {
+    visibility: hidden;
+}
+#check5:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check6 {
+    display: none;
+}
+#check6:checked ~ .other {
+    display: block;
+}
+#check6:checked ~ label {
+    visibility: hidden;
+}
+#check6:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check7 {
+    display: none;
+}
+#check7:checked ~ .other {
+    display: block;
+}
+#check7:checked ~ label {
+    visibility: hidden;
+}
+#check7:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check8 {
+    display: none;
+}
+#check8:checked ~ .other {
+    display: block;
+}
+#check8:checked ~ label {
+    visibility: hidden;
+}
+#check8:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check9 {
+    display: none;
+}
+#check9:checked ~ .other {
+    display: block;
+}
+#check9:checked ~ label {
+    visibility: hidden;
+}
+#check9:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check10 {
+    display: none;
+}
+#check10:checked ~ .other {
+    display: block;
+}
+#check10:checked ~ label {
+    visibility: hidden;
+}
+#check10:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check11 {
+    display: none;
+}
+#check11:checked ~ .other {
+    display: block;
+}
+#check11:checked ~ label {
+    visibility: hidden;
+}
+#check11:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+/* End of Members */
+
+/* Magic Magic */
+#magics .magics {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+#magics .magics-header h1{
+    margin-bottom: 50px;
+}
+#magics .all-magics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#members .sacred {
+    padding: 0;
+    width: 300px;
+}
+#magics .magic-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 80px;
+}
+#magics .magic-info {
+    padding: 30px;
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+#magics .magic-info h2 {
+    color: white;
+    background-color: brown;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#magics .magic-info p {
+    color: white;
+}
+#magics label {
+    color: white;
+    margin-top: 50px;
+    font-size: 1.8rem;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: underline;
+}
+#magics label:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+#magics .more {
+    display: none;
+    transition: all linear 1s;
+}
+#check12 {
+    display: none;
+}
+#check12:checked ~ .more {
+    display: block;
+}
+#check12:checked ~ label {
+    visibility: hidden;
+}
+#check12:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check13 {
+    display: none;
+}
+#check13:checked ~ .more {
+    display: block;
+}
+#check13:checked ~ label {
+    visibility: hidden;
+}
+#check13:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check14 {
+    display: none;
+}
+#check14:checked ~ .more {
+    display: block;
+}
+#check14:checked ~ label {
+    visibility: hidden;
+}
+#check14:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+#check15 {
+    display: none;
+}
+#check15:checked ~ .more {
+    display: block;
+}
+#check15:checked ~ label {
+    visibility: hidden;
+}
+#check15:checked ~ label::after {
+    content: 'Show Less';
+    display: block;
+    visibility: visible;
+}
+/* End of Magic */
+
+/* Contact Section */
+#contact .contact {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#contact .contact-items {
+    width: 400px;
+}
+#contact .contact-item {
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 20px 0 #000;
+    transition: .3s ease box-shadow;
+}
+#contact .contact-item:hover {
+    box-shadow: 0 0 5px 0 #000;
+}
+#contact .icon {
+    width: 70px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+#contact .contact-info h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#contact .contact-info h2 {
+    color: white;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: bold;
+}
+/* End of Contact Section */
+
+/* Footer */
+#footer {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(background/page.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#footer .footer {
+    min-height: 200px;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+#footer h2 {
+    color: white;
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#footer .social-icon {
+    display: flex;
+    margin-bottom: 30px;
+}
+#footer .social-item {
+    height: 70px;
+    width: 70px;
+    margin: 0 15px;
+}
+#footer .social-item img {
+    border-radius: 50px;
+    padding: 5px 5px;
+    transition: all ease .2s;
+}
+#footer .social-item:hover img {
+    background-color: white;
+}
+#footer p {
+    color: white;
+    font-size: 1rem;
+}
+/* End of Footer */
+
+
+/* Keyframes */
+@keyframes hamburger_pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+@keyframes text_reveal {
+    100% {
+        color: rgba(136, 33, 33, 0.671);
+        filter: blur(0);
+    }
+}
+@keyframes img_reveal {
+    100% {
+        display: flex;
+    }
+}
+
+
+/* Responsive */
+@media only screen and (min-width: 768px) {
+    #header .navlist ul a {
+        font-size: 2rem;
+    }
+    #header .navlist ul a::after {
+        font-size: 10rem;
+    }
+    .cta {
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+    h1.section-title {
+        font-size: 6rem;
+    }
+    
+    /* Home Section */
+    #home h1 {
+        font-size: 5rem;
+    }
+    #home .logo {
+        width: 300px;
+    }
+    #home h1.to {
+        position: relative;
+        left: 120px;
+        width: 50px;
+    }
+    #home h1.wel {
+        position: relative;
+        left: 15px;
+        margin-top: 100px;
+        width: 250px;
+    }
+    /* End of Home Section */
+    
+    /* About */
+    #about .guild {
+        width: 450px;
+    }
+    /* End of About */
+
+    /* Services Section */
+    #masters .master-bottom .master-item {
+        flex-basis: 45%;
+        margin: 2.5%;
+    }
+    #masters .master {
+        width: 450px;
+    }
+    #masters .master-top {
+        width: 700px;
+    }
+    /* End of Services Section */
+    #members .memberheads {
+        top: 730px;
+    }
+    /* Project Section */
+    #projects .project-item {
+        flex-direction: row;
+    }
+    #projects .project-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    #projects .project-item {
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    #projects .all-projects .project-info {
+        height: 100%;
+    }
+    #projects .all-projects .project-img {
+        height: 100%;
+    }
+    /* End of Project Section */
+
+    /* About Section */
+    #about .about {
+        flex-direction: row;
+    }
+    #about .col-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 30px;
+    }
+    #about .col-right {
+        text-align: left;
+        padding: 30px;
+    }
+    #about .col-right h1 {
+        text-align: left;
+    }
+    /* End of About Section */
+
+    /* Masters */
+    #masters .master-item .mavis{
+        width: 200px;
+        margin: 50px 0;
+    }
+    #masters .master-item .hades {
+        width: 110px;
+        margin: 50px 0;
+    }
+    #masters .master-item .makarov {
+        width: 225px;
+        margin: 50px 0;
+    }
+    #masters .master-item .gildarts {
+        width: 255px;
+        margin: 50px 0;
+    }
+    
+    /* End of Master */
+
+    /* Members */
+    #members .memberheads ul a {
+        font-size: 13px;
+        padding: 10px 15px;
+    }
+    #members .member-top {
+        width: 700px;
+    }
+    /* End of Members */
+
+    /* Magic */
+    #members .sacred {
+        padding: 0;
+        width: 450px;
+    }
+    /* End of Magic */
+    /* Contact Section */
+    #contact .contact {
+        flex-direction: column;
+        padding: 100px 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 20vh;
+    }
+    #contact .contact-items {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0;
+    }
+    #contact .contact-item {
+        width: 30%;
+        margin: 20px;
+        flex-direction: row;
+    }
+    #contact .contact-item .icon {
+        height: 100px;
+        width: 100px;
+    }
+    #contact .contact-item .icon img {
+        object-fit: contain;
+    }
+    #contact .contact-item .contact-info {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+    }
+    /* End of Contact Section */
+}
+/* End of Responsive for tablet */
+
+/* Responsive for Desktop */
+@media only screen and (min-width: 1200px) {
+    /* Header */
+    #header {
+        position: fixed;
+    }
+    #header .hamburger {
+        display: none;
+    }
+    #header .navlist ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+    #header .navlist ul li {
+        display: inline-block;
+    }
+    #header .navlist ul a {
+        font-size: 1.8rem;
+    }
+    #header .navlist ul a::after {
+        display: none;
+    }
+    /* End of Header */
+
+    /* Front */
+    #home h1 {
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 6rem;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    #home h1.wel {
+        position: relative;
+        left: 15px;
+        width: 350px;
+        margin-top: 100px;
+    }
+    #home h1.to {
+        width: 80px;
+        position: relative;
+        left: 150px;
+    }
+    #home .home {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 50px;
+        justify-content: center;
+    }
+    #home .logo {
+        width: 400px;
+    }
+    /* End of Front */
+
+    /* About */
+    #about .guild {
+        width: 550px;
+    }
+    /* End of About */
+
+    /* Masters */
+    #masters .master-bottom .master-item {
+        flex-basis: 22%;
+        margin: 1.5%;
+    }
+    #masters .master {
+        width: 550px;
+    }
+    #masters .master-top {
+        width: 900px;
+    }
+    #masters .master-item img{
+        width: 200px;
+    }
+    #masters .master-item .sige {
+        margin-top: 30px;
+    }
+    #masters .master-item .sige1 {
+        margin-top: 100px;
+    }
+    #masters .master-item .sige2 {
+        margin-top: 80px;
+    }  
+    #masters .master-item .hades {
+        width: 100px;
+    }
+    #masters .master-item .makarov {
+        width: 225px;
+    }
+    #masters .master-item .gildarts {
+        width: 255px;
+    }
+    #masters .master-item label {
+        margin-top: 100px;
+    }
+    /* Members */
+    #members .memberheads ul a {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+    #members .member-item #lucy {
+        background-position: center center;
+    }
+    #members .member {
+        width: 550px;
+    }
+    #members .member-top {
+        width: 900px;
+    }
+    #members .memberheads {
+        top: 590px;
+    }
+    /* End of Members */
+
+    /* Magic */
+    #magics .sacred {
+        padding: 0;
+        width: 550px;
+    }
+    /* End of Magic */
+}
+/* End of Responsive for Desktop */
+
+/* for 90% zoom in Desktop */
+@media only screen and (min-width:1400px) {
+    #members .memberheads {
+        top: 665px;
+    }
+}
+/* for 80% zoom in Desktop */
+@media only screen and (min-width:1600px) {
+    #members .memberheads {
+        top: 755px;
+    }
+}
+@media only screen and (min-width:1900px) {
+    #members .memberheads {
+        top: 920px;
+    }
+}
+@media only screen and (min-width:2600px) {
+    #members .memberheads {
+        top: 1235px;
+    }
+}
+@media only screen and (min-height: 1080px) {
+    #members .memberheads {
+        top: 1020px;
+    }
+    /* Header */
+    #header {
+        position: fixed;
+    }
+    #header .hamburger {
+        display: none;
+    }
+    #header .navlist ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+        backdrop-filter: blur(0);
+    }
+    #header .navlist ul li {
+        display: inline-block;
+    }
+    #header .navlist ul a {
+        font-size: 1.4rem;
+        padding: 5px 10px;
+    }
+    #header .navlist ul a::after {
+        display: none;
+    }
+    /* End of Header */
+
+    /* Front */
+    #home h1 {
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 6rem;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    #home h1.wel {
+        position: relative;
+        left: 15px;
+        width: 350px;
+        margin-top: 100px;
+    }
+    #home h1.to {
+        width: 80px;
+        position: relative;
+        left: 150px;
+    }
+    #home .home {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 50px;
+        justify-content: center;
+    }
+    #home .logo {
+        width: 400px;
+    }
+    /* End of Front */
+
+    /* About */
+    #about .guild {
+        width: 550px;
+    }
+    /* End of About */
+
+    /* Masters */
+    #masters .master-bottom .master-item {
+        flex-basis: 22%;
+        margin: 1.5%;
+    }
+    #masters .master {
+        width: 550px;
+    }
+    #masters .master-top {
+        width: 700px;
+    }
+    #masters .master-item img{
+        width: 200px;
+    }
+    #masters .master-item .sige {
+        margin-top: 30px;
+    }
+    #masters .master-item .sige1 {
+        margin-top: 100px;
+    }
+    #masters .master-item .sige2 {
+        margin-top: 80px;
+    }  
+    #masters .master-item .hades {
+        width: 100px;
+    }
+    #masters .master-item .makarov {
+        width: 225px;
+    }
+    #masters .master-item .gildarts {
+        width: 255px;
+    }
+    #masters .master-item label {
+        margin-top: 100px;
+    }
+    /* Members */
+    #members .memberheads ul a {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+    #members .member-item #lucy {
+        background-position: center center;
+    }
+    #members .member {
+        width: 550px;
+    }
+    #members .member-top {
+        width: 700px;
+    }
+    /* End of Members */
+
+    /* Magic */
+    #members .sacred {
+        padding: 0;
+        width: 550px;
+    }
+    /* End */
+
+    /* Footer */
+    #footer {
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(page.jpg);
+        background-position: center;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    #footer .footer {
+        min-height: 200px;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 10px;
+    }
+    #footer h2 {
+        color: white;
+        font-weight: 500;
+        font-size: 1.4rem;
+        letter-spacing: .1rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    #footer .social-icon {
+        display: flex;
+        margin-bottom: 10px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    #footer .social-item {
+        height: 50px;
+        width: 50px;
+        margin: 0 15px;
+    }
+    #footer .social-item img {
+        border-radius: 50px;
+        padding: 5px 5px;
+        transition: all ease .2s;
+    }
+    #footer .social-item:hover img {
+        background-color: white;
+    }
+    #footer p {
+        color: white;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+    /* End */
+}
+/* End */
+
+/* Height */
+@media only screen and (min-height: 1200px) {
+    #members .memberheads {
+        top: 1145px;
+    }
+}
+@media only screen and (min-height: 1300px) {
+    #members .memberheads {
+        top: 1245px;
+    }
+}
+@media only screen and (min-height: 1400px) {
+    #members .memberheads {
+        top: 1345px;
+    }
+}@media only screen and (min-height: 1500px) {
+    #members .memberheads {
+        top: 1445px;
+    }
+}
+@media only screen and (min-height: 1600px) {
+    #members .memberheads {
+        top: 1545px;
+    }
+}@media only screen and (min-height: 1700px) {
+    #members .memberheads {
+        top: 1645px;
+    }
+}@media only screen and (min-height: 1800px) {
+    #members .memberheads {
+        top: 1745px;
+    }
+}@media only screen and (min-height: 1900px) {
+    #members .memberheads {
+        top: 1845px;
+    }
+}
